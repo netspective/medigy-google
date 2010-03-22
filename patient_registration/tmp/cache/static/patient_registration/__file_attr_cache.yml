@@ -1,0 +1,58 @@
+--- 
+/Users/jeremyhulick/projects/sproutcore/patient_registration/apps/patient_registration/fixtures/patient.js: 
+  scan_source: 
+    mtime: 1269141848
+    value: 
+    - - sc_require
+      - "'"
+      - models/patient
+/Users/jeremyhulick/projects/sproutcore/patient_registration/apps/patient_registration/resources/loading.rhtml: 
+  scan_source: 
+    mtime: 1269138981
+    value: []
+
+/Users/jeremyhulick/projects/sproutcore/patient_registration/apps/patient_registration/models/patient.js: 
+  scan_source: 
+    mtime: 1269143115
+    value: []
+
+/Users/jeremyhulick/projects/sproutcore/patient_registration/apps/patient_registration/core.js: 
+  scan_source: 
+    mtime: 1269138981
+    value: []
+
+/Users/jeremyhulick/projects/sproutcore/patient_registration/apps/patient_registration/resources/registration_page.js: 
+  scan_source: 
+    mtime: 1269228631
+    value: 
+    - - sc_require
+      - "'"
+      - core
+    - - sc_require
+      - "'"
+      - views/patient
+/Users/jeremyhulick/projects/sproutcore/patient_registration/apps/patient_registration/resources/main_page.js: 
+  scan_source: 
+    mtime: 1269222726
+    value: []
+
+/Users/jeremyhulick/projects/sproutcore/patient_registration/apps/patient_registration/main.js: 
+  scan_source: 
+    mtime: 1269143914
+    value: []
+
+/Users/jeremyhulick/projects/sproutcore/patient_registration/apps/patient_registration/controllers/registration.js: 
+  scan_source: 
+    mtime: 1269218422
+    value: []
+
+/Users/jeremyhulick/projects/sproutcore/patient_registration/apps/patient_registration/views/patient.js: 
+  scan_source: 
+    mtime: 1269228528
+    value: []
+
+/Users/jeremyhulick/projects/sproutcore/patient_registration/apps/patient_registration/controllers/patients.js: 
+  scan_source: 
+    mtime: 1269222047
+    value: []
+
