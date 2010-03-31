@@ -32,7 +32,7 @@ PatientRegistration.registrationPage = SC.Page.create({
           layout         : { top: 0, left: 0, bottom: 0, right: 0 },
           contentBinding : 'PatientRegistration.patientController'
         })
-        
+
       }),
       
       patientsCount : SC.LabelView.design({
@@ -55,9 +55,9 @@ PatientRegistration.registrationPage = SC.Page.create({
       })
       
     })
-      
+
   }),
-  
+
   patientInformation: SC.outlet('panel.contentView.patientManager.patientDetailView')
   
 });
