@@ -4,16 +4,26 @@
 /*globals */
 
 /** 
-
   View/edit Patient information.
   
   @extends SC.View
   @author Jeremy Hulick
 */
 
+
 PatientRegistration.PatientView = SC.View.extend(
 /** @scope PatientRegistration.PatientView.prototype */ {
   
+  _listTitles: function() {
+    var ret = [];
+    ret.push({ id: '0', displayName: "Mr.".loc()});
+    ret.push({ id: '1', displayName: "Mrs.".loc()});
+    ret.push({ id: '2', displayName: "Ms.".loc()});
+    ret.push({ id: '3', displayName: "Dr.".loc()});
+	
+    return ret;
+  },
+	
   createChildViews: function() {
     
     var childViews = [];
@@ -33,14 +43,18 @@ PatientRegistration.PatientView = SC.View.extend(
     this.titleLabel = this.createChildView(SC.LabelView.extend({
       layout    : { top: 42, left: 0, width: 85, height: 18 },
       textAlign : SC.ALIGN_RIGHT,
-      value     : "Title:".loc() 
+      value     : "Title:".loc()
     }));
     childViews.push(this.titleLabel);
-    this.titleField = this.createChildView(SC.TextFieldView.extend({
-      layout       : { top: 42, left: 90, height: 20, width: 300 },
-      hint         : "title".loc()
-    }));
-    childViews.push(this.titleField);    
+
+    this.titleField = this.createChildView(SCUI.ComboBoxView.extend({
+	   layout : { top: 42, left: 90, height: 20, width: 100 },
+
+       objectsBinding   : SC.Binding.oneWay('PatientRegistration.comboBoxController.content'),
+       valueKey         : 'value',
+       nameKey          : 'name'
+	}));
+    childViews.push(this.titleField);
     
     this.firstNameLabel = this.createChildView(SC.LabelView.extend({
       layout    : { top: 74, left: 0, width: 85, height: 18 },
@@ -96,11 +110,16 @@ PatientRegistration.PatientView = SC.View.extend(
       value     : "Gender:".loc()
     }));
     childViews.push(this.genderLabel);
-    this.genderField = this.createChildView(SC.TextFieldView.extend(SC.Validatable,{
-      layout       : { top: 202, left: 90, height: 20, width: 300 },
-      hint         : "gender".loc()
-    }));
+
+    this.genderField = this.createChildView(SCUI.ComboBoxView.extend({
+	   layout : { top: 202, left: 90, height: 20, width: 150 },
+
+       objectsBinding   : SC.Binding.oneWay('PatientRegistration.comboBoxController.content'),
+       valueKey         : 'value',
+       nameKey          : 'name'
+	}));
     childViews.push(this.genderField);
+    
 
     this.birthDateLabel = this.createChildView(SC.LabelView.extend({
       layout    : { top: 234, left: 0, width: 85, height: 18 },
@@ -108,8 +127,9 @@ PatientRegistration.PatientView = SC.View.extend(
       value     : "Birth Date:".loc()
     }));
     childViews.push(this.birthDateLabel);
+
     this.birthDateField = this.createChildView(SC.TextFieldView.extend(SC.Validatable,{
-      layout       : { top: 234, left: 90, height: 20, width: 300 },
+      layout       : { top: 234, left: 90, height: 20, width: 150 },
       hint         : "birthDate".loc()
     }));
     childViews.push(this.birthDateField);
@@ -132,10 +152,14 @@ PatientRegistration.PatientView = SC.View.extend(
       value     : "Marital Status:".loc()
     }));
     childViews.push(this.maritalStatueLabel);
-    this.maritalStatusField = this.createChildView(SC.TextFieldView.extend(SC.Validatable,{
-      layout       : { top: 298, left: 90, height: 20, width: 300 },
-      hint         : "maritalStatus".loc()
-    }));
+
+    this.maritalStatusField = this.createChildView(SCUI.ComboBoxView.extend({
+	   layout : { top: 298, left: 90, height: 20, width: 150 },
+
+       objectsBinding   : SC.Binding.oneWay('PatientRegistration.comboBoxController.content'),
+       valueKey         : 'value',
+       nameKey          : 'name'
+	}));
     childViews.push(this.maritalStatusField);
 
     this.educationLabel = this.createChildView(SC.LabelView.extend({
@@ -144,11 +168,16 @@ PatientRegistration.PatientView = SC.View.extend(
       value     : "Education:".loc()
     }));
     childViews.push(this.educationLabel);
-    this.educationField = this.createChildView(SC.TextFieldView.extend(SC.Validatable,{
-      layout       : { top: 330, left: 90, height: 20, width: 300 },
-      hint         : "education".loc()
-    }));
+
+    this.educationField = this.createChildView(SCUI.ComboBoxView.extend({
+	   layout : { top: 330, left: 90, height: 20, width: 150 },
+
+       objectsBinding   : SC.Binding.oneWay('PatientRegistration.comboBoxController.content'),
+       valueKey         : 'value',
+       nameKey          : 'name'
+	}));
     childViews.push(this.educationField);
+
 
     this.religionLabel = this.createChildView(SC.LabelView.extend({
       layout    : { top: 362, left: 0, width: 85, height: 18 },
@@ -156,12 +185,16 @@ PatientRegistration.PatientView = SC.View.extend(
       value     : "Religion:".loc()
     }));
     childViews.push(this.religionLabel);
-    this.religionField = this.createChildView(SC.TextFieldView.extend(SC.Validatable,{
-      layout       : { top: 362, left: 90, height: 20, width: 300 },
-      hint         : "religion".loc()
-    }));
+
+    this.religionField = this.createChildView(SCUI.ComboBoxView.extend({
+	   layout : { top: 362, left: 90, height: 20, width: 150 },
+
+       objectsBinding   : SC.Binding.oneWay('PatientRegistration.comboBoxController.content'),
+       valueKey         : 'value',
+       nameKey          : 'name'
+	}));
     childViews.push(this.religionField);
-	
+
 
 
 
@@ -196,7 +229,7 @@ PatientRegistration.PatientView = SC.View.extend(
     }));
     childViews.push(this.stateLabel);
     this.stateField = this.createChildView(SC.TextFieldView.extend({
-      layout       : { top: 74, right: 10, height: 20, width: 300 },
+      layout       : { top: 74, right: 211, height: 20, width: 100 },
       hint         : "state".loc()
     }));
     childViews.push(this.stateField);
@@ -219,10 +252,14 @@ PatientRegistration.PatientView = SC.View.extend(
       value     : "Address Type:".loc() 
     }));
     childViews.push(this.addressTypeLabel);
-    this.addressTypeField = this.createChildView(SC.TextFieldView.extend({
-      layout       : { top: 138, right: 10, height: 20, width: 300 },
-      hint         : "addressType".loc()
-    }));
+
+    this.addressTypeField = this.createChildView(SCUI.ComboBoxView.extend({
+	   layout : { top: 138, right: 161, height: 20, width: 150 },
+
+       objectsBinding   : SC.Binding.oneWay('PatientRegistration.comboBoxController.content'),
+       valueKey         : 'value',
+       nameKey          : 'name'
+	}));
     childViews.push(this.addressTypeField);
 
     this.phoneLabel = this.createChildView(SC.LabelView.extend({
@@ -243,10 +280,14 @@ PatientRegistration.PatientView = SC.View.extend(
       value     : "Phone Type:".loc() 
     }));
     childViews.push(this.phoneTypeLabel);
-    this.phoneTypeField = this.createChildView(SC.TextFieldView.extend({
-      layout       : { top: 202, right: 10, height: 20, width: 300 },
-      hint         : "phoneType".loc()
-    }));
+
+    this.phoneTypeField = this.createChildView(SCUI.ComboBoxView.extend({
+	   layout : { top: 202, right: 161, height: 20, width: 150 },
+
+       objectsBinding   : SC.Binding.oneWay('PatientRegistration.comboBoxController.content'),
+       valueKey         : 'value',
+       nameKey          : 'name'
+	}));
     childViews.push(this.phoneTypeField);
 
     this.emailLabel = this.createChildView(SC.LabelView.extend({
@@ -267,10 +308,14 @@ PatientRegistration.PatientView = SC.View.extend(
       value     : "Email Type:".loc() 
     }));
     childViews.push(this.emailTypeLabel);
-    this.emailTypeField = this.createChildView(SC.TextFieldView.extend({
-      layout       : { top: 266, right: 10, height: 20, width: 300 },
-      hint         : "emailType".loc()
-    }));
+
+    this.emailTypeField = this.createChildView(SCUI.ComboBoxView.extend({
+	   layout : { top: 266, right: 161, height: 20, width: 150 },
+
+       objectsBinding   : SC.Binding.oneWay('PatientRegistration.comboBoxController.content'),
+       valueKey         : 'value',
+       nameKey          : 'name'
+	}));
     childViews.push(this.emailTypeField);
 
     
