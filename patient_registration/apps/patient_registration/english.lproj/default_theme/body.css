@@ -1,0 +1,275 @@
+/* 
+
+  Tasks Application Styling 
+
+  @author Matt Grantham
+  @author Suvajit Guupta
+  
+*/
+
+/*
+// FIXME: [SC] see how to make min-width/height work when specified on "body" instead of "mainPane"
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  min-width: 1024px;
+  min-height: 768px;
+}
+*/
+
+#mainPane {
+  min-width: 1024px;
+}
+
+.sc-theme .sc-view {
+  color: #000;
+}
+
+.sc-theme .sc-gray-border {
+  border: 0 !important;
+}
+
+.bordered-view {
+	border: 1px solid #bbb !important;
+	background: #eee;
+}
+
+.display-modes {
+  font-size: 10px !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+}
+
+.error-message {
+	color: red !important;
+}
+
+.onscreen-help {
+  color: #777 !important;
+  font-size: 10px !important;
+	line-height: 12px !important;
+}
+
+.date-time {
+  color: #444 !important;
+  font-size: 10px !important;
+}
+
+.quickfilter-toolbar {
+  border: 1px solid #AAA;
+  background: #FFF;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.quickfilter-label,
+.quickfilter-label .sc-button-inner,
+.quickfilter-label .sc-button-inner label {
+  font-size: 10px !important;
+  color: #FFF !important;
+  text-shadow: none !important;
+  -moz-border-radius: 15px !important;
+  -webkit-border-radius: 15px !important;
+}
+
+.quickfilter-label.active {
+  border: 1px solid #555 !important;
+}
+
+.quickfilter-label.active .sc-button-inner label {
+  text-shadow: 0 1px #BBB !important;
+}
+
+.troubled .sc-button-inner,
+.troubled .sc-button-inner label {
+  background: #C33 !important;
+}
+
+.unfinished .sc-button-inner,
+.unfinished .sc-button-inner label {
+  background: #33F !important;
+}
+
+.unvalidated .sc-button-inner,
+.unvalidated .sc-button-inner label {
+  background: #6C6 !important;
+}
+
+.completed .sc-button-inner,
+.completed .sc-button-inner label {
+  background: #363 !important;
+}
+
+.showstoppers .sc-button-inner,
+.showstoppers .sc-button-inner label {
+  background: #639 !important;
+}
+
+.all .sc-button-inner,
+.all .sc-button-inner label {
+  background: #555 !important;
+}
+
+.filter-label {
+  font-size: 10px !important;
+  color: #000 !important;
+}
+
+.recently-updated {
+  margin-left: -3px !important;
+  height: 11px !important;
+  width: 11px !important;
+  background: static_url('images/recently-updated.png') no-repeat 0 0;
+}
+
+.sel .recently-updated {
+  background: static_url('images/recently-updated-selected.png') no-repeat 0 0;
+}
+
+.sc-collection-view {
+  border-top: 0 !important;
+}
+
+.sc-view.sc-text-field-view .sc-hint {
+  z-index: 0;
+  letter-spacing: -1px;
+}
+
+.sc-view.sc-checkbox-view span {
+  font-size: 10px !important;
+  text-align: left !important;
+}
+
+.text-icon {
+  width: 16px;
+  height: 16px;
+  background: static_url('images/text.png') no-repeat 0 0;
+}
+
+.html-icon {
+  width: 16px;
+  height: 16px;
+  background: static_url('images/html.png') no-repeat 0 0;
+}
+
+.description-icon {
+  width: 16px;
+  height: 16px;
+  background: static_url('images/description.png') no-repeat 0 0;
+}
+
+.checkbox-icon .icon {
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+
+.checkbox-icon .label {
+  left: 38px !important;
+}
+
+.sc-view.sc-label-view.title-bar-label.icon img.icon {
+	top: 0px;
+	margin-left: 0px;
+	margin-right: 2px;
+	height: 24px;
+	width: 24px;
+}
+
+.sc-view.sc-label-view.toolbar-label.icon img.icon {
+	top: 0px;
+	margin-left: 0px;
+	margin-right: 2px;
+	height: 18px;
+}
+
+.sc-view.sc-radio-view.task-attribute-set.disabled .sc-radio-button .sc-button-label {
+  color: black;
+}
+
+.sc-view.sc-menu-item {
+  font-size: 11px !important;
+}
+
+.sc-view.sc-button-view.sc-menu-item.disabled {
+  height: 4px !important;
+}
+
+.sc-view.sc-list-item-view.sc-collection-item .sc-outline label {
+  opacity: 1 !important;
+}
+
+.sc-view.sc-list-item-view.sc-collection-item.sc-group-item {
+  left: 0px !important;
+  color: #777 !important;
+}
+
+.sc-list-item-view img.disclosure {
+  left: -5px !important;
+}
+
+.sc-view.sc-list-item-view.sc-collection-item.sc-group-item label {
+  left: 10px !important;
+}
+
+.select-button {
+  border: 1px solid gray !important;
+  background-color: #DDD !important;
+}
+
+.select-button span label {
+  font-size: 11px !important;
+  padding: 0px 4px !important;
+}
+
+.scui-combobox-view .scui-combobox-dropdown-button-view {
+  width: 18px !important;
+  height: 17px !important;
+  border: 1px solid gray !important;
+  margin-right: 2px !important;
+  background: static_url('images/dropdown-arrow.png') no-repeat 0 0;
+}
+
+.statistics-pane table {
+  border: 1px solid gray !important;
+  border-collapse: separate !important;
+}
+
+.statistics-pane td {
+  font-size: 11px !important;
+  line-height: 20px !important;
+	border: none !important;
+}
+
+.statistics-pane td img {
+  vertical-align: middle !important;
+}
+
+.statistics-pane tr.even {
+  background-color: #ddd;
+}
+
+.statistics-pane tr.odd {
+  background-color: #f2f2f2;
+}
+
+.sc-view.sc-label-view.active {
+  border: 1px solid #555 !important;
+  background-color: #AAA;
+  -moz-border-radius: 15px !important;
+  -webkit-border-radius: 15px !important;
+}
+
+.mozilla .sc-text-field-view input {
+  top:0px !important;
+}
+
+.unauthorized {
+  text-decoration: line-through !important;
+}
