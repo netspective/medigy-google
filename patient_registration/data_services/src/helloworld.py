@@ -1,5 +1,6 @@
 print 'Content-Type: text/plain'
 print ''
 print 'Hello, world!'
+print 'hmm can't think of anything interesting'
 print 'hello pdog'
 print 'hello dru, kick it one time yo!'
