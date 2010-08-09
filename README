@@ -1,0 +1,30 @@
+medigy-new
+
+To create project descriptor for Eclipse
+cd medigy-new
+mvn eclipse:eclipse
+
+To create project descriptor for IntelliJ IDEA
+cd medigy-new
+mvn idea:idea
+
+To build application and deploy using GAE development server
+sh clean_install_debug.sh
+
+Info for First Time setup only:
+When compiling application for the first time, Maven will download a boat-load of jar files so be patient
+After download, and compile you should see everything SUCCESSFUL
+Next, unpack gae
+cd medigy-new
+cd medigy-webapp
+mvn gae:unpack
+
+You environment should now be ready to execute medigy-new on the GAE development server, you can do so by running the 
+clean_install_debug.sh
+or do it manually by
+cd medigy-new
+mvn clean install
+cd medigy-webapp
+mvn gae:run
+
+Questions, feel free to email me.
