@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.medigy</groupId>
+	<artifactId>medigy</artifactId>
+	<packaging>pom</packaging>
+	<version>${medigy.version}</version>
+	<name>Medigy Parent Project</name>
+	<description>Medigy Application Data Services API</description>
+
+	<modules>
+		<module>medigy-utils</module>
+		<module>medigy-model</module>
+		<module>medigy-persistence</module>
+		<module>medigy-service</module>
+		<module>medigy-webapp</module>
+	</modules>
+
+	<repositories>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>mvnsearch.org</id>
+			<name>MVN Search</name>
+			<url>http://mvnsearch.org/maven2/</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>biblio</id>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>codehaus.org</id>
+			<name>CodeHaus Repository</name>
+			<url>http://repository.codehaus.org</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>guice-maven</id>
+			<name>guice maven</name>
+			<url>http://guice-maven.googlecode.com/svn/trunk</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>objectify-appengine</id>
+			<url>http://objectify-appengine.googlecode.com/svn/maven</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>maven-gae-plugin-repo</id>
+			<name>maven-gae-plugin repository</name>
+			<url>http://maven-gae-plugin.googlecode.com/svn/repository</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>maven-gae-plugin-repo</id>
+			<name>maven-gae-plugin repository</name>
+			<url>http://maven-gae-plugin.googlecode.com/svn/repository</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- Java compiler version -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+	<!-- <dependencyManagement> -->
+		<dependencies>
+
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-api-1.0-sdk</artifactId>
+				<version>${gae.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.geronimo.specs</groupId>
+				<artifactId>geronimo-servlet_2.5_spec</artifactId>
+				<version>1.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.googlecode.objectify</groupId>
+				<artifactId>objectify</artifactId>
+				<version>${objectify.version}</version>
+			</dependency>
+
+			<!--
+				Guice libraries for class binding and setting up servlet context
+			-->
+
+			<dependency>
+				<groupId>com.google.code.guice</groupId>
+				<artifactId>guice</artifactId>
+				<version>${guice.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.code.guice</groupId>
+				<artifactId>guice-servlet</artifactId>
+				<version>${guice.version}</version>
+			</dependency>
+
+			<!--
+				Jersey Restful jars
+			-->
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-core</artifactId>
+				<version>${jersey.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-server</artifactId>
+				<version>${jersey.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.sun.jersey.contribs</groupId>
+				<artifactId>jersey-guice</artifactId>
+				<version>${jersey.version}</version>
+			</dependency>
+
+			<!--
+				GAE libraries for local testing as described here:
+				http://code.google.com/appengine/docs/java/howto/unittesting.html
+			-->
+			<!-- 
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>1.1.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-api-labs</artifactId>
+				<version>${gae.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-api-stubs</artifactId>
+				<version>${gae.version}</version>
+			</dependency>
+			
+			
+			<dependency>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-local-runtime</artifactId>
+				<version>${gae.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-testing</artifactId>
+				<version>${gae.version}</version>
+			</dependency>
+			-->
+			
+			<!--  Not sure if this is required, if not remove it -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.5</version>
+			</dependency>
+
+		</dependencies>
+	<!-- </dependencyManagement> -->
+
+	<profiles>
+		<!--
+			We can configure our integration server to activate this profile and
+			perform gae:deploy, thus uploading latest snapshot to the
+			http://1.latest.<applicationName>.appspot.com automatically
+		-->
+		<profile>
+			<id>integration-build</id>
+			<properties>
+				<gae.application.version>1</gae.application.version>
+			</properties>
+		</profile>
+
+		<!--
+			This profile will activate automatically during release and upload
+			application to the http://2.latest.<applicationName>.appspot.com (We
+			might want to set the 2nd version as our applications Default version
+			to be accessible at http://<applicationName>.appspot.com)
+		-->
+		<profile>
+			<id>release-build</id>
+			<activation>
+				<property>
+					<name>performRelease</name>
+					<value>true</value>
+				</property>
+			</activation>
+
+			<properties>
+				<!--
+					During release, set application version in appengine-web.xml to 2
+				-->
+				<gae.application.version>2</gae.application.version>
+			</properties>
+		</profile>
+	</profiles>
+
+	<properties>
+		<!--
+			This is just for "eclipse:eclipse" goal to always attempt downloading
+			sources.
+		-->
+		<downloadSources>true</downloadSources>
+		<jetty.version>6.1.22</jetty.version>
+		<junit.version>4.6</junit.version>
+		<log4j.version>1.2.14</log4j.version>
+		<objectify.version>2.2.1</objectify.version>
+		<!--
+			Specify AppEngine version for your project. It should match SDK
+			version pointed to by ${gae.home} property (Typically, one used by
+			your Eclipse plug-in)
+		-->
+		<gae.version>1.3.2</gae.version>
+		<gae.home>${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}</gae.home>	
+		<!-- <gae.home>/Developer/appengine-java-sdk-1.3.2</gae.home> -->
+		<gae.debugPort>8000</gae.debugPort>
+		<urlrewrite.filter.version>3.1.0</urlrewrite.filter.version>
+		<jug.version>2.0.0</jug.version>
+
+		<!--
+			Specify Guice version, currently in use. Guice 2.0 plays nicely with
+			Jersey-guice so do not change this until Jersey supports newer Guice
+			version
+		-->
+		<guice.version>2.0</guice.version>
+
+		<!-- Jersey version we use -->
+		<jersey.version>1.3</jersey.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<medigy.version>1.0-SNAPSHOT</medigy.version>
+	</properties>
+</project>

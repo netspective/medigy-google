@@ -1,0 +1,19 @@
+#Donot commit temporary files
+*~
+*#
+*~?
+*~??
+#Donot commit backup files
+*.bak
+/*/war/WEB-INF/lib/
+/*/war/WEB-INF/classes/
+/*/war/WEB-INF/appengine-generated/
+/*/bin/
+#Donot commit target files
+medigy-*/target/
+.classpath
+.project
+.DS_Store
+.settings/
+test-output/
+.metadata/
